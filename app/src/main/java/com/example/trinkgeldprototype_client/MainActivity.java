@@ -280,7 +280,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int numStars= myRatingBar.getNumStars();
+                float numStars= myRatingBar.getRating();
                 String text= String.valueOf(numStars)+"\n";
                 byte[] bytes = text.getBytes(Charset.defaultCharset());
                 try {
@@ -288,7 +288,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 }catch (NullPointerException e){
                     Toast.makeText(com.example.trinkgeldprototype_client.MainActivity.this,"Not Connected",Toast.LENGTH_SHORT).show();
                 }
-                myRatingBar.setRating(5);
+
                 startThirdLayout();
 
             }

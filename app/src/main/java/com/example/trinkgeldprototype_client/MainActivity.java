@@ -319,6 +319,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         thirdLayout.setVisibility(thirdLayout.VISIBLE);
     }
 
+
     public void btnConnect(View v){
         try {
             startConnection(mBTDevice);

@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">TrinkgeldPrototype_Client</string>
+    <string name="thank_you_for_the_rating">Thank you for the rating</string>
+    <string name="bondstate">BondState</string>
+    <string name="connect">Connect</string>
+    <string name="_2_euro">2 Euro</string>
+    <string name="_25_euro">25 Euro</string>
+    <string name="_1_euro">1 Euro</string>
+    <string name="no_tip">No Tip</string>
+    <string name="_10_euro">10 Euro</string>
+    <string name="would_you_give_a_tip_if_so_how_much">Would you give a Tip, if so how much</string>
+    <string name="send">Send</string>
+    <string name="paired_devices">Paired Devices</string>
+    <string name="_5_euro">5 Euro</string>
+    <string name="enter">Enter</string>
+    <string name="enter_custom_amount">Enter custom amount</string>
+    <string name="please_choose_a_rating_than_press_send">Please choose a Rating than press Send</string>
+    <string name="textview">TextView</string>
+    <string name="on_off">ON/OFF</string>
+    <string name="discove_state">Discove State</string>
+    <string name="selecteddevice">selectedDevice</string>
+    <string name="bluetooth_state">Bluetooth State</string>
+    <string name="search_devices">Search Devices</string>
+    <string name="enable_discoverable">Enable Discoverable</string>
 </resources>

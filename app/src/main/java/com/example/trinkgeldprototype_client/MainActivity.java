@@ -281,7 +281,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View v) {
                 float numStars= myRatingBar.getRating();
-                String text= String.valueOf(numStars)+"\n";
+                String text= String.valueOf(numStars)+" Stars"+"\n";
                 byte[] bytes = text.getBytes(Charset.defaultCharset());
                 try {
                     mBluetoothConnection.write(bytes);

@@ -154,8 +154,6 @@
             android:id="@+id/constraintLayout2"
             android:layout_width="169dp"
             android:layout_height="0dp"
-            android:layout_marginStart="197dp"
-            android:layout_marginLeft="197dp"
             app:layout_constraintBottom_toTopOf="@+id/IvNewDevices"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/button"

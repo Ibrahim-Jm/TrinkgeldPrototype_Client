@@ -243,7 +243,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mBondStateView2 = (TextView) findViewById(R.id.bondState2);
         myAdapter=BluetoothAdapter.getDefaultAdapter();
         IvNewDevices =(ListView) findViewById(R.id.IvNewDevices);
-        deviceView =(TextView) findViewById(R.id.deviceView);
+
         mBTDevices = new ArrayList<>();
         mBluetoothStatus = (TextView)findViewById(R.id.StateView);
         discoverDisplay = (TextView)findViewById(R.id.discoverablty);

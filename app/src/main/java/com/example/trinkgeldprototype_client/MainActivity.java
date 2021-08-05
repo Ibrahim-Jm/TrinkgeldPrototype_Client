@@ -123,8 +123,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 if (action.equals(BluetoothDevice.ACTION_FOUND)){
                     BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                     if (!(device.getName()==null)){
-                    mBTDevices.add(device);}
-                    deviceView.setText("" + device.getName()+ ": " + device.getAddress());
+                        if(!mBTDevices.contains(device)){
+                            mBTDevices.add(device);
+                        }
+                    }
+
 
                     mDeviceListAdapter = new DeviceListAdapter(context, R.layout.device_adapter_view, mBTDevices);
                     IvNewDevices.setAdapter(mDeviceListAdapter);
@@ -224,6 +227,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         unregisterReceiver(mBroadcastReciver2);
         unregisterReceiver(mBroadcastReciver3);
         unregisterReceiver(mBroadcastReciver4);
+        unregisterReceiver(mReceiver);
+        unregisterReceiver(mReciver);
+
     }
 
     @Override
@@ -342,6 +348,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void btnDiscover(View v){
+        ArrayList<BluetoothDevice> emptyList = new ArrayList<>();
+        mDeviceListAdapter = new DeviceListAdapter(this, R.layout.device_adapter_view, emptyList);
+        IvNewDevices.setAdapter(mDeviceListAdapter);
         if (!myAdapter.isEnabled()){
             myAdapter.enable();
 
@@ -452,9 +461,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public void getPaired(View v){
         ArrayList<BluetoothDevice> pairedDevices = new ArrayList<>();
+        mDeviceListAdapter = new DeviceListAdapter(this, R.layout.device_adapter_view, pairedDevices);
+        IvNewDevices.setAdapter(mDeviceListAdapter);
         for (BluetoothDevice dv : s){
             pairedDevices.add(dv);
+
         }
+        mBTDevices.clear();
+        mBTDevices=pairedDevices;
         mDeviceListAdapter = new DeviceListAdapter(this, R.layout.device_adapter_view, pairedDevices);
         IvNewDevices.setAdapter(mDeviceListAdapter);
     }
@@ -540,7 +554,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         try {
             myAdapter.cancelDiscovery();
-        }catch (NullPointerException i){};
+        }catch (NullPointerException i){}
+
         String deviceName=mBTDevices.get(position).getName();
         String deviceAddress=mBTDevices.get(position).getAddress();
         if (Build.VERSION.SDK_INT>Build.VERSION_CODES.JELLY_BEAN_MR2){
